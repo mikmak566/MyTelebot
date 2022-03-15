@@ -86,7 +86,7 @@ def get_text_messages(message):
 # -----------------------------------------------------------------------
 def goto_menu(chat_id, name_menu):
 
-   # получение нужного элемента меню
+    # получение нужного элемента меню
    if name_menu == "Выход" and Menu.cur_menu != None and Menu.cur_menu.parent != None:
        target_menu = Menu.getMenu(Menu.cur_menu.parent.name)
    else:
@@ -97,6 +97,7 @@ def goto_menu(chat_id, name_menu):
 
        # Проверим, нет ли обработчика для самого меню. Если есть - выполним нужные команды
        if target_menu.name == "Игра в 21":
+           global game21
            game21 = BotGames.Game21()  # создаём новый экземпляр игры
            text_game = game21.get_cards(2)  # просим 2 карты в начале игры
            bot.send_media_group(chat_id, media=getMediaCards(game21))  # получим и отправим изображения карт
