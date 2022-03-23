@@ -6,12 +6,12 @@ from io import BytesIO
 import telebot  # pyTelegramBotAPI 4.3.1
 from telebot import types
 import requests
-import bs4
+import bs4   #beautifulsoup4
 import BotGames  # бот-игры, файл BotGames.py
 from menuBot import Menu  # в этом модуле есть код, создающий экземпляры классов описывающих моё меню
 import DZ  # домашнее задание от первого урока
 
-bot = telebot.TeleBot('5149965447:AAF3z_oB2sM6Cch1scdWe5AV_aAV3bWmXiA')  # Создаем экземпляр бота
+bot = telebot.TeleBot('5207758409:AAGJ5MVwNBkinpzp6PDCyOVNCxODByUsO-4')  # Создаем экземпляр бота
 game21 = None  # класс игры в 21, экземпляр создаём только при начале игры
 
 
@@ -138,11 +138,11 @@ def getMediaCards(game21):
 # -----------------------------------------------------------------------
 def send_help(chat_id):
     global bot
-    bot.send_message(chat_id, "Автор: Швец Андрей")
+    bot.send_message(chat_id, "Автор: ВладиSlave")
     markup = types.InlineKeyboardMarkup()
-    btn1 = types.InlineKeyboardButton(text="Напишите автору", url="https://t.me/user59387")
+    btn1 = types.InlineKeyboardButton(text="Напишите автору", url="https://t.me/BIaDISlav")
     markup.add(btn1)
-    img = open('Швец Андрей.png', 'rb')
+    img = open('AVA.jpg', 'rb')
     bot.send_photo(chat_id, img, reply_markup=markup)
 
 # -----------------------------------------------------------------------

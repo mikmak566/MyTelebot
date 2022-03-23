@@ -1,16 +1,16 @@
 
 # -----------------------------------------------------------------------
 def dz1(bot, chat_id):
-    bot.send_message(chat_id, text="ДОДЕЛАТЬ")
+    bot.send_message(chat_id, text="ДОДЕЛАТЬ!")
 # -----------------------------------------------------------------------
 def dz2(bot, chat_id):
-    bot.send_message(chat_id, text="ДОДЕЛАТЬ")
+    bot.send_message(chat_id, text="ДОДЕЛАТЬ!")
 # -----------------------------------------------------------------------
 def dz3(bot, chat_id):
-    bot.send_message(chat_id, text="ДОДЕЛАТЬ")
+    bot.send_message(chat_id, text="ДОДЕЛАТЬ!")
 # -----------------------------------------------------------------------
 def dz4(bot, chat_id):
-    bot.send_message(chat_id, text="ДОДЕЛАТЬ")
+    bot.send_message(chat_id, text="ДОДЕЛАТЬ!")
 # -----------------------------------------------------------------------
 def dz5(bot, chat_id):
     my_inputInt(bot, chat_id, "Сколько вам лет?", dz5_ResponseHandler)
