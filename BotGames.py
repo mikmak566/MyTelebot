@@ -128,7 +128,7 @@ class Game21:
 
         elif self.score == 21:
             self.status = True
-            text_game = "ВЫ ВЫИГРАЛИ!!"
+            text_game = "ВЫ ВЫИГРАЛИ!"
         else:
             self.status = None
             text_game = "Очков: " + str(self.score) + " в колоде осталось карт: " + str(self.remaining)

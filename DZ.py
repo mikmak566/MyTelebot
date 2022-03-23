@@ -16,7 +16,7 @@ def dz5(bot, chat_id):
     my_inputInt(bot, chat_id, "Сколько вам лет?", dz5_ResponseHandler)
 
 def dz5_ResponseHandler(bot, chat_id, age_int):
-    bot.send_message(chat_id, text=f"О! тебе уже {age_int}! \nА через год будет уже {age_int+1}!!!")
+    bot.send_message(chat_id, text=f"О! тебе уже {age_int}! \nА через год будет уже {age_int+1}!")
 # -----------------------------------------------------------------------
 def dz6(bot, chat_id):
     dz6_ResponseHandler = lambda message: bot.send_message(chat_id, f"Добро пожаловать {message.text}! У тебя красивое имя, в нём {len(message.text)} букв!")
