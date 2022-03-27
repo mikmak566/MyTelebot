@@ -44,6 +44,9 @@ def get_text_messages(message):
         elif ms_text == "Прислать собаку":
             bot.send_photo(chat_id, photo=get_dogURL(), caption="Вот тебе собачка!")
 
+        elif ms_text == "Прислать котика":
+            bot.send_photo(chat_id, photo=get_catURL(), caption="Вот тебе кошечка!")
+
         elif ms_text == "Прислать анекдот":
             bot.send_message(chat_id, text=get_anekdot())
 
@@ -90,7 +93,7 @@ def get_text_messages(message):
             DZ.dz6(bot, chat_id)
 
     else:  # ...........................................................................................................
-        bot.send_message(chat_id, text="Мне жаль, я не понимаю вашу команду: " + ms_text)
+        bot.send_message(chat_id, text="Чё ты высрал? Это чё: " + ms_text)
         goto_menu(chat_id, "Главное меню")
 
 # -----------------------------------------------------------------------
@@ -138,9 +141,9 @@ def getMediaCards(game21):
 # -----------------------------------------------------------------------
 def send_help(chat_id):
     global bot
-    bot.send_message(chat_id, "Автор: ВладиSlave")
+    bot.send_message(chat_id, "Автор: MikMak56")
     markup = types.InlineKeyboardMarkup()
-    btn1 = types.InlineKeyboardButton(text="Напишите автору", url="https://t.me/BIaDISlav")
+    btn1 = types.InlineKeyboardButton(text="Напишите автору", url="https://t.me/mikmak56")
     markup.add(btn1)
     img = open('AVA.jpg', 'rb')
     bot.send_photo(chat_id, img, reply_markup=markup)
@@ -178,6 +181,15 @@ def get_anekdot():
 def get_dogURL():
     url = ""
     req = requests.get('https://random.dog/woof.json')
+    if req.status_code == 200:
+        r_json = req.json()
+        url = r_json['url']
+        # url.split("/")[-1]
+    return url
+# -----------------------------------------------------------------------
+def get_catURL():
+    url = ""
+    req = requests.get('https://aws.random.cat/meow.json')
     if req.status_code == 200:
         r_json = req.json()
         url = r_json['url']
