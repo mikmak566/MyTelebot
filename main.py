@@ -3,7 +3,6 @@ import json
 from gettext import find
 from io import BytesIO
 
-import string
 import telebot  # pyTelegramBotAPI 4.3.1
 from telebot import types
 import requests
@@ -48,8 +47,11 @@ def get_text_messages(message):
         elif ms_text == "Прислать котика":
             bot.send_photo(chat_id, photo=get_catURL(), caption="Вот тебе кошечка!")
 
-        elif ms_text == "Прислать лисенка":
+        elif ms_text == "Прислать лисёнка":
             bot.send_photo(chat_id, photo=get_foxURL(), caption="Вот тебе лисичка!")
+
+        elif ms_text == "Прислать аксолотля":
+            bot.send_photo(chat_id, photo=get_axolotlyaURL(), caption="Вот тебе аксолотль!")
 
         elif ms_text == "Прислать анекдот":
             bot.send_message(chat_id, text=get_anekdot())
@@ -97,9 +99,8 @@ def get_text_messages(message):
             DZ.dz6(bot, chat_id)
 
     else:  # ...........................................................................................................
-        bot.send_message(chat_id, text="Чё ты высрал? Это чё: " + ms_text)
+        bot.send_message(chat_id, text="Чё ты высрал? Это чё: " + ms_text + "? ")
         goto_menu(chat_id, "Главное меню")
-
 # -----------------------------------------------------------------------
 @bot.callback_query_handler(func=lambda call: True)
 def callback_worker(call):
@@ -206,6 +207,15 @@ def get_foxURL():
     if req.status_code == 200:
         r_json = req.json()
         url = r_json['image']
+        # url.split("/")[-1]
+    return url
+# -----------------------------------------------------------------------
+def get_axolotlyaURL():
+    url = ""
+    req = requests.get('https://axoltlapi.herokuapp.com')
+    if req.status_code == 200:
+        r_json = req.json()
+        url = r_json['url']
         # url.split("/")[-1]
     return url
 # -----------------------------------------------------------------------
